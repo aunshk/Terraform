@@ -1,32 +1,11 @@
-variable "aws_region" {
-    default = "eu-north-1"
-}
+variable "aws_region" {}
+variable "project" {}
 
-variable "project_name" {
-    default = "Terraform-vpc-subnet-demo"
-}
+variable "vpc_cidr" {}
 
-variable "vpc_cidr" {
-    default = "10.0.0.0/16"
-}
+variable "public_subnet_cidr" {}
+variable "private_subnet_cidr" {}
 
-variable "public_subnet_cidr" {
-    default = "10.0.1.0/24"
-}
-
-variable "private_subnet_cidr" {
-    default = "10.0.2.0/24"
-}
-
-variable "instance_type" {
-  default = "t3.micro"
-}
-
-variable "ami_id" {
-    default = "ami-0fa91bc90632c73c9"
-}
-
-variable "key_name" {
-    default = "awskey"
-}
-
+variable "instance_type" {}
+variable "ami_id" {}
+variable "key_name" {}

@@ -35,7 +35,7 @@ The S3 bucket stores the Terraform state file.
 
 ```bash
 aws s3api create-bucket \
-  --bucket my-terraform-state-bucket \
+  --bucket aunsh-terraform-state-bucket \
   --region eu-north-1 \
   --create-bucket-configuration LocationConstraint=eu-north-1
 ```
@@ -44,7 +44,7 @@ aws s3api create-bucket \
 
 ```bash
 aws s3api put-bucket-versioning \
-  --bucket my-terraform-state-bucket \
+  --bucket aunsh-terraform-state-bucket \
   --versioning-configuration Status=Enabled
 ```
 
@@ -52,7 +52,7 @@ aws s3api put-bucket-versioning \
 
 ```bash
 aws s3api put-bucket-encryption \
-  --bucket my-terraform-state-bucket \
+  --bucket aunsh-terraform-state-bucket \
   --server-side-encryption-configuration '{
     "Rules": [{
       "ApplyServerSideEncryptionByDefault": {
@@ -127,8 +127,8 @@ Attach the following policy if admin access is not used:
         "s3:ListBucket"
       ],
       "Resource": [
-        "arn:aws:s3:::my-terraform-state-bucket",
-        "arn:aws:s3:::my-terraform-state-bucket/*"
+        "arn:aws:s3:::aunsh-terraform-state-bucket",
+        "arn:aws:s3:::aunsh-terraform-state-bucket/*"
       ]
     },
     {
@@ -159,7 +159,7 @@ Create a backend configuration file.
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "my-terraform-state-bucket"
+    bucket         = "aunsh-terraform-state-bucket"
     key            = "dev/terraform.tfstate"
     region         = "eu-north-1"
     dynamodb_table = "terraform-locks"
